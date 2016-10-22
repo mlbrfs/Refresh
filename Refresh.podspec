@@ -1,41 +1,29 @@
 Pod::Spec.new do |s|
 
   s.name         = "Refresh"
-  s.version      = "0.0.1"
-  s.summary      = "A short description of Refresh."
+  s.version      = "1.0.0"
+  s.summary      = "which implement by Swift."
 
   s.description  = <<-DESC
+                   UIScrollView Refresh control for swift3.0 
                    DESC
 
-  s.homepage     = "http://EXAMPLE/Refresh"
+  s.homepage     = "https://github.com/121372288/Refresh"
 
-  s.license      = "MIT (example)"
+  s.license      = "MIT"
 
-  s.author             = { "" => "" }
+  s.author       = { "121372288" => "121372288@qq.com" }
 
-  s.platform     = :ios, "5.0"
+  s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "http://EXAMPLE/Refresh.git", :tag => "#{s.version}" }
-
-
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source       = { :git => "https://github.com/121372288/Refresh.git", :tag => "1.0.0" }
 
 
-  s.resource  = "icon.png"
-  s.resources = "Resources/*.png"
+  s.source_files  = "Refresh/*"
 
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
-  # s.framework  = "SomeFramework"
-  s.frameworks = "SomeFramework", "AnotherFramework"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
+  s.framework = "UIKit", "Foundation"
 
   s.requires_arc = true
-
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
 
 end

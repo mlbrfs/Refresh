@@ -1,0 +1,10 @@
+framework module Refresh {
+  umbrella header "Refresh.h"
+
+  export *
+  module * { export * }
+}
+
+module Refresh.Swift {
+    header "Refresh-Swift.h"
+}
