@@ -25,18 +25,28 @@ UIScrollView Refresh control for  swift3.0
 - (void)endFooterRefresh;
 
 // 判断是否在刷新
+
 @property (nonatomic, readonly) BOOL isHeaderRefreshing;
+
 @property (nonatomic, readonly) BOOL isFooterRefreshing;
 
 // 给刷新时不同状态赋值文案
+
 @property (nonatomic, copy) NSString * _Nonnull headerPullToRefreshText;
+
 @property (nonatomic, copy) NSString * _Nonnull headerReleaseToRefreshText;
+
 @property (nonatomic, copy) NSString * _Nonnull headerRefreshingText;
+
 @property (nonatomic, copy) NSString * _Nonnull footerPullToRefreshText;
+
 @property (nonatomic, copy) NSString * _Nonnull footerReleaseToRefreshText;
+
 @property (nonatomic, copy) NSString * _Nonnull footerRefreshingText;
 
 // 删除刷新视图
+
 - (void)removerHeader;
+
 - (void)removerFooter;
 
