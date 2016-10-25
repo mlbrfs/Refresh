@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		jHbb1DPtp61DI8YF9ErUt/MA26Y=
+		6SOwcQeermS6laO8XnpeYTlDKMQ=
 		</data>
 		<key>Modules/Refresh.swiftmodule/i386.swiftdoc</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/Refresh.swiftmodule/i386.swiftmodule</key>
 		<data>
-		9oQ7az0xx8JYi3wF4QlaTzDVAq8=
+		WCwAsxXUJpJKZRxqfctMNwNFasY=
 		</data>
 		<key>Modules/Refresh.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/Refresh.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		5RqrNlD9CD6fw6BWRok/4ZhMrQw=
+		xvluKJEwSOg4mRGxavfmcmKQkiI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -80,11 +80,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9oQ7az0xx8JYi3wF4QlaTzDVAq8=
+			WCwAsxXUJpJKZRxqfctMNwNFasY=
 			</data>
 			<key>hash2</key>
 			<data>
-			WjBDbh2m8oW+1tj38vboLvIiaVdg5ISa3X/jaFLaxvw=
+			L0k4P3Fuuu7PX1lerXGyJOKRjUJgD0KTonB5VapO64A=
 			</data>
 		</dict>
 		<key>Modules/Refresh.swiftmodule/x86_64.swiftdoc</key>
@@ -102,11 +102,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5RqrNlD9CD6fw6BWRok/4ZhMrQw=
+			xvluKJEwSOg4mRGxavfmcmKQkiI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Y0cKrnKAljjHr+oytWB9CNRLx44Gw6H4WDN3Jm4n0OQ=
+			cGPnCGnurQBfreyx/efb8I5B139nZpCpqXdyrc66SaU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
