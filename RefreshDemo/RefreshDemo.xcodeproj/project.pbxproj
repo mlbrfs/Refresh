@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D25FFB921EA4DBA00ED5068 /* RefrashFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25FFB221EA4DBA00ED5068 /* RefrashFooterView.swift */; };
+		6D25FFBA21EA4DBA00ED5068 /* UIScrollView+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25FFB421EA4DBA00ED5068 /* UIScrollView+Refresh.swift */; };
+		6D25FFBB21EA4DBA00ED5068 /* RefreshHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25FFB521EA4DBA00ED5068 /* RefreshHeaderView.swift */; };
+		6D25FFBC21EA4DBA00ED5068 /* RefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25FFB621EA4DBA00ED5068 /* RefreshConst.swift */; };
+		6D25FFBD21EA4DBA00ED5068 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D25FFB721EA4DBA00ED5068 /* RefreshComponent.swift */; };
+		6D25FFBE21EA4DBA00ED5068 /* Refresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6D25FFB821EA4DBA00ED5068 /* Refresh.bundle */; };
 		6D75CCB11DB5C856008ADDE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D75CCB01DB5C856008ADDE7 /* AppDelegate.swift */; };
 		6D75CCB31DB5C856008ADDE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D75CCB21DB5C856008ADDE7 /* ViewController.swift */; };
 		6D75CCB61DB5C856008ADDE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D75CCB41DB5C856008ADDE7 /* Main.storyboard */; };
@@ -14,7 +20,6 @@
 		6D75CCBB1DB5C856008ADDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D75CCB91DB5C856008ADDE7 /* LaunchScreen.storyboard */; };
 		6D75CCC61DB5C856008ADDE7 /* RefreshDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D75CCC51DB5C856008ADDE7 /* RefreshDemoTests.swift */; };
 		6D75CCD11DB5C856008ADDE7 /* RefreshDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D75CCD01DB5C856008ADDE7 /* RefreshDemoUITests.swift */; };
-		6D75CD591DB60756008ADDE7 /* Refresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D75CD581DB60756008ADDE7 /* Refresh.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6D25FFB221EA4DBA00ED5068 /* RefrashFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefrashFooterView.swift; sourceTree = "<group>"; };
+		6D25FFB321EA4DBA00ED5068 /* Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Refresh.h; sourceTree = "<group>"; };
+		6D25FFB421EA4DBA00ED5068 /* UIScrollView+Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Refresh.swift"; sourceTree = "<group>"; };
+		6D25FFB521EA4DBA00ED5068 /* RefreshHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshHeaderView.swift; sourceTree = "<group>"; };
+		6D25FFB621EA4DBA00ED5068 /* RefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshConst.swift; sourceTree = "<group>"; };
+		6D25FFB721EA4DBA00ED5068 /* RefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
+		6D25FFB821EA4DBA00ED5068 /* Refresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Refresh.bundle; sourceTree = "<group>"; };
 		6D75CCAD1DB5C856008ADDE7 /* RefreshDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefreshDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D75CCB01DB5C856008ADDE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D75CCB21DB5C856008ADDE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +73,6 @@
 		6D75CCCC1DB5C856008ADDE7 /* RefreshDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RefreshDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D75CCD01DB5C856008ADDE7 /* RefreshDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshDemoUITests.swift; sourceTree = "<group>"; };
 		6D75CCD21DB5C856008ADDE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D75CD581DB60756008ADDE7 /* Refresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Refresh.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D75CD591DB60756008ADDE7 /* Refresh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +100,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D25FFB121EA4DBA00ED5068 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				6D25FFB221EA4DBA00ED5068 /* RefrashFooterView.swift */,
+				6D25FFB321EA4DBA00ED5068 /* Refresh.h */,
+				6D25FFB421EA4DBA00ED5068 /* UIScrollView+Refresh.swift */,
+				6D25FFB521EA4DBA00ED5068 /* RefreshHeaderView.swift */,
+				6D25FFB621EA4DBA00ED5068 /* RefreshConst.swift */,
+				6D25FFB721EA4DBA00ED5068 /* RefreshComponent.swift */,
+				6D25FFB821EA4DBA00ED5068 /* Refresh.bundle */,
+			);
+			path = Refresh;
+			sourceTree = SOURCE_ROOT;
+		};
 		6D75CCA41DB5C856008ADDE7 = {
 			isa = PBXGroup;
 			children = (
@@ -113,7 +137,7 @@
 		6D75CCAF1DB5C856008ADDE7 /* RefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6D75CD581DB60756008ADDE7 /* Refresh.framework */,
+				6D25FFB121EA4DBA00ED5068 /* Refresh */,
 				6D75CCB01DB5C856008ADDE7 /* AppDelegate.swift */,
 				6D75CCB21DB5C856008ADDE7 /* ViewController.swift */,
 				6D75CCB41DB5C856008ADDE7 /* Main.storyboard */,
@@ -211,6 +235,7 @@
 				TargetAttributes = {
 					6D75CCAC1DB5C856008ADDE7 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = C8TM74AHWM;
 						ProvisioningStyle = Automatic;
 					};
 					6D75CCC01DB5C856008ADDE7 = {
@@ -251,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D75CCBB1DB5C856008ADDE7 /* LaunchScreen.storyboard in Resources */,
+				6D25FFBE21EA4DBA00ED5068 /* Refresh.bundle in Resources */,
 				6D75CCB81DB5C856008ADDE7 /* Assets.xcassets in Resources */,
 				6D75CCB61DB5C856008ADDE7 /* Main.storyboard in Resources */,
 			);
@@ -278,7 +304,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D75CCB31DB5C856008ADDE7 /* ViewController.swift in Sources */,
+				6D25FFBC21EA4DBA00ED5068 /* RefreshConst.swift in Sources */,
+				6D25FFB921EA4DBA00ED5068 /* RefrashFooterView.swift in Sources */,
 				6D75CCB11DB5C856008ADDE7 /* AppDelegate.swift in Sources */,
+				6D25FFBA21EA4DBA00ED5068 /* UIScrollView+Refresh.swift in Sources */,
+				6D25FFBB21EA4DBA00ED5068 /* RefreshHeaderView.swift in Sources */,
+				6D25FFBD21EA4DBA00ED5068 /* RefreshComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +462,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C8TM74AHWM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RefreshDemo",
@@ -448,6 +480,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C8TM74AHWM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RefreshDemo",
@@ -533,6 +566,7 @@
 				6D75CCD71DB5C856008ADDE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D75CCD81DB5C856008ADDE7 /* Build configuration list for PBXNativeTarget "RefreshDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +575,7 @@
 				6D75CCDA1DB5C856008ADDE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D75CCDB1DB5C856008ADDE7 /* Build configuration list for PBXNativeTarget "RefreshDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +584,7 @@
 				6D75CCDD1DB5C856008ADDE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
