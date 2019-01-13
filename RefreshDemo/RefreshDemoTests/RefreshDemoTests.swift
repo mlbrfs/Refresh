@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import RefreshDemo
+//@testable import RefreshDemo
 
 class RefreshDemoTests: XCTestCase {
     
