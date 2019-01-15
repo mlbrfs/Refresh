@@ -64,11 +64,11 @@ open class RefreshStateHeader: RefreshHeader {
                 
                 let time = formatter.string(from: lastUpdatedTime)
                 
-                lastUpdatedTimeLabel.text = "最近更新" + time
+                lastUpdatedTimeLabel.text = Bundle.localizedString(for: RefreshText.Time.HeaderLastTime) + time
                 
             } else {
                 
-                lastUpdatedTimeLabel.text = "无记录"
+                lastUpdatedTimeLabel.text = Bundle.localizedString(for: RefreshText.Time.HeaderNoneLastDate)
             }
         }
     }
@@ -82,10 +82,10 @@ open class RefreshStateHeader: RefreshHeader {
         addSubview(stateLabel)
         addSubview(lastUpdatedTimeLabel)
         
-        set("下拉可刷新", state: .idle)
-        set("松开可刷新", state: .pulling)
-        set("正在刷新数据中...", state: .refreshing)
-        
+        set(Bundle.localizedString(for: RefreshText.Header.idle), state: .idle)
+        set(Bundle.localizedString(for: RefreshText.Header.pulling), state: .pulling)
+        set(Bundle.localizedString(for: RefreshText.Header.refreshing), state: .refreshing)
+        layoutIfNeeded()
     }
     
     open override func placeSubViews() {

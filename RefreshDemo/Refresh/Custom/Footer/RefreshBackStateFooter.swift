@@ -18,7 +18,7 @@ open class RefreshBackStateFooter: RefreshBackFooter {
     public private(set) var stateTitles: [RefreshState: String] = [:]
     
     /** 设置state状态下的文字 */
-    open func set(title: String, state: RefreshState) {
+    open func set(_ title: String, state: RefreshState) {
         
         stateTitles[state] = title
         stateLabel.text = stateTitles[self.state]
@@ -33,10 +33,10 @@ open class RefreshBackStateFooter: RefreshBackFooter {
         addSubview(stateLabel)
         
         // 初始化文字
-        set(title: "上拉刷新", state: .idle)
-        set(title: "松开立即加载更多", state: .pulling)
-        set(title: "正在努力刷新中", state: .refreshing)
-        set(title: "没有更多数据了", state: .noMoreData)
+        set(Bundle.localizedString(for: RefreshText.Footer.backIdle), state: .idle)
+        set(Bundle.localizedString(for: RefreshText.Footer.backPulling), state: .pulling)
+        set(Bundle.localizedString(for: RefreshText.Footer.backRefreshing), state: .refreshing)
+        set(Bundle.localizedString(for: RefreshText.Footer.backNoMoreData), state: .noMoreData)
         
     }
     

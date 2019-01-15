@@ -10,11 +10,11 @@ import UIKit
 
 open class RefreshFooter: RefreshComponent {
     
-    public init(_ refreshingCallback: (()->())?) {
+    public required init(_ refreshingCallback: (()->())?) {
         super.init()
         refreshingBlock = refreshingCallback
     }
-    public init(_ target: NSObject?, action: Selector?) {
+    public required init(_ target: Any?, action: Selector) {
         super.init()
         addRefreshingTarget(target, action: action)
     }

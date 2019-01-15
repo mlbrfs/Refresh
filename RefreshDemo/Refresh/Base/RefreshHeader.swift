@@ -10,11 +10,11 @@ import UIKit
 
 open class RefreshHeader: RefreshComponent {
     
-    public init(_ refreshingCallback: (()->())?) {
+    public required init(_ refreshingCallback: (()->())?) {
         super.init()
         refreshingBlock = refreshingCallback
     }
-    public init(_ target: NSObject?, action: Selector?) {
+    public required init(_ target: Any?, action: Selector) {
         super.init()
         addRefreshingTarget(target, action: action)
     }
@@ -85,7 +85,7 @@ open class RefreshHeader: RefreshComponent {
             
             if scrollView.isDragging { // 如果正在拖拽
                 self.pullingPercent = pullingPercent
-                if state == .idle, offsetY < normal2pullingOffsetY {
+                if state == .idle || state == .willRefresh, offsetY < normal2pullingOffsetY {
                     // 转为即将刷新状态
                     state = .pulling
                 } else if state == .pulling, offsetY >= normal2pullingOffsetY {

@@ -44,7 +44,7 @@ open class RefreshComponent: UIView {
         return state == .refreshing || state == .willRefresh
     }
     
-    var refreshingTarget: NSObject?
+    var refreshingTarget: Any?
     var refreshingAction: Selector?
     /** 刷新回调 */
     var refreshingBlock: (()->())?
@@ -86,12 +86,11 @@ open class RefreshComponent: UIView {
         guard let newSuperview = newSuperview as? UIScrollView else {
             return
         }
-        
         // 设置宽度
         self.frame.size.width = newSuperview.frame.size.width
         // 设置位置
         self.frame.origin.x = -(scrollView?.mlInset.left ?? 0)
-        
+
         // 记录scrollView
         scrollView = newSuperview
         scrollView?.alwaysBounceVertical = true
@@ -153,7 +152,7 @@ open class RefreshComponent: UIView {
     open func scrollView(panState changed: [NSKeyValueChangeKey : Any]?) { }
     open func scrollView(contentOffset changed: [NSKeyValueChangeKey : Any]?) { }
     
-    open func addRefreshingTarget(_ target: NSObject?, action: Selector?) {
+    open func addRefreshingTarget(_ target: Any?, action: Selector) {
         refreshingTarget = target
         refreshingAction = action
     }
@@ -192,11 +191,10 @@ open class RefreshComponent: UIView {
             self?.refreshingBlock?()
         }
         beginRefreshingCompletionBlock?()
-        guard let refreshingAction = refreshingAction else {
+        guard let refreshingTarget = refreshingTarget, let refreshingAction = refreshingAction else {
             return
         }
-        refreshingTarget?.perform(refreshingAction)
-        
+        Timer.scheduledTimer(timeInterval: 0, target: refreshingTarget, selector: refreshingAction, userInfo: nil, repeats: false)
         
     }
     
@@ -225,6 +223,57 @@ public extension UILabel {
             }
         }
         return stringWidth
+    }
+}
+
+protocol RefreshComponentProtocol where Self: UIView {
+    
+    var scrollView: UIScrollView? { get }
+    
+    var state: RefreshState { get set }
+    
+}
+
+extension RefreshComponentProtocol {
+    
+    /** 监听设置 */
+    public func scrollView(contentSize changed: [NSKeyValueChangeKey : Any]?) { }
+    public func scrollView(panState changed: [NSKeyValueChangeKey : Any]?) { }
+    public func scrollView(contentOffset changed: [NSKeyValueChangeKey : Any]?) { }
+    
+}
+
+/** 刷新监听者 */
+class RefreshObserver: NSObject {
+    
+    public let base: RefreshComponentProtocol
+    init(_ base: RefreshComponentProtocol) {
+        self.base = base
+    }
+    
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if !(base as! UIView).isUserInteractionEnabled { return }
+        switch keyPath {
+        case RefreshContentOffset:
+            if (base as! UIView).isHidden { return }
+            base.scrollView(contentOffset: change)
+        case RefreshContentSize: // 这个就算看不见也需要处理
+            base.scrollView(contentSize: change)
+        case RefreshPathPanState:
+            if (base as! UIView).isHidden { return }
+            base.scrollView(panState: change)
+        default: break
+        }
+        
+    }
+    
+    
+    
+    deinit {
+        base.scrollView?.removeObserver(self, forKeyPath: RefreshContentOffset)
+        base.scrollView?.removeObserver(self, forKeyPath: RefreshContentSize)
+        base.scrollView?.panGestureRecognizer.removeObserver(self, forKeyPath: RefreshContentOffset)
     }
     
 }

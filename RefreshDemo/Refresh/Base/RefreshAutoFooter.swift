@@ -18,7 +18,7 @@ open class RefreshAutoFooter: RefreshFooter {
     
     /** 是否每一次拖拽只发一次请求 */
     open var isOnlyRefreshPerDrag: Bool = false
-    
+    /** 一个新的拖拽 */
     var isOneNewPan: Bool = false
     
     open override func willMove(toSuperview newSuperview: UIView?) {

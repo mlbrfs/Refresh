@@ -30,19 +30,10 @@ public struct RefreshWrapper<Base> {
     fileprivate init(_ base: Base) {
         self.base = base
     }
+    
 }
 
 public extension RefreshWrapper where Base: UIScrollView {
-    /*
-     1 添加属性  头部刷新控件
-     2 增加添加头部func - 增加添加头部func带回调
-     2.5 添加响应事件
-     3 增加开始刷新  增加结束刷新
-     4 增量
-     1> 是否正在刷新
-     2> 刷新控件文案
-     5 删除头部控件
-     */
     // 1.1 添加属性  头部刷新控件
     public var header: RefreshHeader? {
         set {
@@ -61,130 +52,87 @@ public extension RefreshWrapper where Base: UIScrollView {
             return base.footer
         }
     }
-    
-//    private mutating func addHeader() {
-//        if header == nil {
-//            let headerView: RefreshHeader = RefreshHeaderView.header()
-//            base.addSubview(headerView)
-//            header = headerView
-//        }
-//    }
-//
-//    private mutating func addfooter() {
-//        if footer == nil {
-//            let footerView: RefreshFooter = RefreshFooterView.footer()
-//            base.addSubview(footerView)
-//            footer = footerView
-//        }
-//    }
-//    // 2 增加添加头部func带回调
-//    public mutating func addHeaderCallBack(_ callback:(()-> Void)?)  -> Void  {
-//        addHeader()
-//        header!.startRefreshingCallback = callback
-//
-//    }
-//    public mutating func addFooterCallBack(_ callback:(()-> Void)?)  -> Void  {
-//        addfooter()
-//        footer!.startRefreshingCallback = callback
-//    }
-//    //2.5 添加事件响应
-//    public mutating func addHeaderWithTarget(_ target: Any , action: Selector) {
-//        addHeader()
-//        header?.startRefreshingTaget = target
-//        header?.startRefreshingAction = action
-//    }
-//    public mutating func addFooterWithTarget(_ target: Any , action: Selector) {
-//        addfooter()
-//        footer?.startRefreshingTaget = target
-//        footer?.startRefreshingAction = action
-//    }
-//    // 3 增加开始刷新
-//    public mutating func startHeaderRefresh()  -> Void {
-//        addHeader()
-//        header!.startRefreshing()
-//    }
-//    public mutating func startFooterRefresh()  -> Void {
-//        addfooter()
-//        footer!.startRefreshing()
-//    }
-//    // 3 增加结束刷新
-//    public func endHeaderRefresh() -> Void {
-//        header?.endRefreshing()
-//    }
-//    public func endFooterRefresh() -> Void {
-//        footer?.endRefreshing()
-//    }
-    // 4.1> 是否正在刷新
-    public var isHeaderRefreshing: Bool {
-        get {
-            return header == nil ? false : header!.isRefreshing
+
+    public mutating func add(optional: RefreshOptional, target: Any, selector: Selector) {
+        
+        switch optional {
+        case .footer(let footer):
+            switch footer {
+            case .none:
+                self.footer = nil
+            case .normal(isAuto: let isAuto):
+                if isAuto {
+                    self.footer = RefreshAutoFooter(target, action: selector)
+                } else {
+                    self.footer = RefreshBackFooter(target, action: selector)
+                }
+            case .animation(isAuto: let isAuto):
+                if isAuto {
+                    self.footer = RefreshAutoAnimationFooter(target, action: selector)
+                } else {
+                    self.footer = RefreshBackAnimationFooter(target, action: selector)
+                }
+            case .custom(let footType):
+                self.footer = footType.init(target, action: selector)
+            }
+        case .header(let header):
+            switch header {
+            case .none:
+                self.header = nil
+            case .normal:
+                self.header = RefreshNormalHeader(target, action: selector)
+            case .animation:
+                self.header = RefreshAnimationHeader(target, action: selector)
+            case .custom(let headerType):
+                self.header = headerType.init(target, action: selector)
+            }
         }
+    }
+    
+    public mutating func add(optional: RefreshOptional, refreshCallback: (()->())?) {
+        
+        switch optional {
+        case .footer(let footer):
+            switch footer {
+            case .none:
+                self.footer = nil
+            case .normal(isAuto: let isAuto):
+                if isAuto {
+                    self.footer = RefreshAutoFooter(refreshCallback)
+                } else {
+                    self.footer = RefreshBackFooter(refreshCallback)
+                }
+            case .animation(isAuto: let isAuto):
+                if isAuto {
+                    self.footer = RefreshAutoAnimationFooter(refreshCallback)
+                } else {
+                    self.footer = RefreshBackAnimationFooter(refreshCallback)
+                }
+            case .custom(let footType):
+                self.footer = footType.init(refreshCallback)
+            }
+        case .header(let header):
+            switch header {
+            case .none:
+                self.header = nil
+            case .normal:
+                self.header = RefreshNormalHeader(refreshCallback)
+            case .animation:
+                self.header = RefreshAnimationHeader(refreshCallback)
+            case .custom(let headerType):
+                self.header = headerType.init(refreshCallback)
+            }
+        }
+        
+    }
+    
+    // 是否正在刷新
+    public var isHeaderRefreshing: Bool {
+        return header?.isRefreshing ?? false
     }
     public var isFooterRefreshing: Bool {
-        get {
-            return footer == nil ? false : footer!.isRefreshing
-        }
+        return footer?.isRefreshing ?? false
     }
-    // 4.2> 刷新控件文案
-    public var headerPullToRefreshText: String {
-        get {
-            return RefreshHeaderPullToRefresh
-        }
-        set {
-            RefreshHeaderPullToRefresh = newValue
-        }
-    }
-    public var headerReleaseToRefreshText: String {
-        get {
-            return RefreshHeaderReleaseToRefresh
-        }
-        set {
-            RefreshHeaderReleaseToRefresh = newValue
-        }
-    }
-    public var headerRefreshingText: String {
-        get {
-            return RefreshHeaderRefreshing
-        }
-        set {
-            RefreshHeaderRefreshing = newValue
-        }
-    }
-    
-    public var footerPullToRefreshText: String {
-        get {
-            return RefreshFooterPullToRefresh
-        }
-        set {
-            RefreshFooterPullToRefresh = newValue
-        }
-    }
-    public var footerReleaseToRefreshText: String {
-        get {
-            return RefreshFooterReleaseToRefresh
-        }
-        set {
-            RefreshFooterReleaseToRefresh = newValue
-        }
-    }
-    public var footerRefreshingText: String {
-        get {
-            return RefreshFooterRefreshing
-        }
-        set {
-            RefreshFooterRefreshing = newValue
-        }
-    }
-    
-    // 5 删除头部控件
-    public func removerHeader() -> Void {
-        header?.removeFromSuperview()
-    }
-    
-    public func removerFooter() -> Void {
-        footer?.removeFromSuperview()
-    }
-    
     
 }
 
@@ -192,4 +140,35 @@ public extension RefreshWrapper where Base: UIScrollView {
 extension UIScrollView: RefreshCompatible {
     
 }
+
+public enum RefreshOptional {
+    
+    public enum Header {
+        
+        case none
+        
+        case normal
+        
+        case animation
+        
+        case custom(RefreshHeader.Type)
+    }
+    
+    public enum Footer {
+        
+        case none
+        
+        case normal(isAuto: Bool)
+        
+        case animation(isAuto: Bool)
+        
+        case custom(RefreshFooter.Type)
+        
+    }
+    
+    case header(Header)
+    case footer(Footer)
+    
+}
+
 

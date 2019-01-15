@@ -1,5 +1,5 @@
 # Refresh
-UIScrollView Refresh control for  swift3.0
+UIScrollView Refresh control for  swift4.2  
 
 #引入项目
 
@@ -11,8 +11,7 @@ UIScrollView Refresh control for  swift3.0
 下面是scrollView分类方法
 
 // 添加头部或者尾部控件 和调用时回调block
-- (void)addHeaderCallBack:(void (^ _Nullable)(void))callback;
-- (void)addFooterCallBack:(void (^ _Nullable)(void))callback;
+
 
 // 给刷新事件添加Target和响应事件
 - (void)addHeaderWithTarget:(id _Nonnull)target action:(SEL _Nonnull)action;

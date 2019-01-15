@@ -10,10 +10,9 @@ import UIKit
 
 extension UIScrollView  {
 
-
     private struct AssociatedKeys {
-        static var header:RefreshHeader?
-        static var footer:RefreshFooter?
+        static var header: RefreshHeader?
+        static var footer: RefreshFooter?
     }
     // 1.1 添加属性  头部刷新控件
     var header: RefreshHeader?  {

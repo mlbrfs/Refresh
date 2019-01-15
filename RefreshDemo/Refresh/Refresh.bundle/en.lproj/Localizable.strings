@@ -1,0 +1,16 @@
+"RefreshHeaderIdleText" = "Pull down to refresh";
+"RefreshHeaderPullingText" = "Release to refresh";
+"RefreshHeaderRefreshingText" = "Loading...";
+
+"RefreshAutoFooterIdleText" = "Tap or pull up to load more";
+"RefreshAutoFooterRefreshingText" = "Loading...";
+"RefreshAutoFooterNoMoreDataText" = "No more data";
+
+"RefreshBackFooterIdleText" = "Pull up to load more";
+"RefreshBackFooterPullingText" = "Release to load more.";
+"RefreshBackFooterRefreshingText" = "Loading...";
+"RefreshBackFooterNoMoreDataText" = "No more data";
+
+"RefreshHeaderLastTimeText" = "Last updated: ";
+"RefreshHeaderDateTodayText" = "Today";
+"RefreshHeaderNoneLastDateText" = "No record";
