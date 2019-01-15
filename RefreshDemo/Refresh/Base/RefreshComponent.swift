@@ -59,8 +59,9 @@ open class RefreshComponent: UIView {
     /** scrollView 手势 */
     weak var pan: UIPanGestureRecognizer?
     
-    convenience init() {
-        self.init(frame: .zero)
+    init() {
+        super.init(frame: .zero)
+        prepare()
     }
     
     public override init(frame: CGRect) {
@@ -89,13 +90,13 @@ open class RefreshComponent: UIView {
         // 设置宽度
         self.frame.size.width = newSuperview.frame.size.width
         // 设置位置
-        self.frame.origin.x = -(scrollView?.contentInset.left ?? 0)
+        self.frame.origin.x = -(scrollView?.mlInset.left ?? 0)
         
         // 记录scrollView
         scrollView = newSuperview
         scrollView?.alwaysBounceVertical = true
         // 记录UIScrollView最开始的contentInset
-        self.scrollViewOriginalInset = self.scrollView?.contentInset
+        self.scrollViewOriginalInset = self.scrollView?.mlInset
         addObservers()
     }
     

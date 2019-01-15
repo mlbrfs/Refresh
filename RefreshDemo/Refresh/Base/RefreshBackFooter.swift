@@ -43,22 +43,22 @@ open class RefreshBackFooter: RefreshFooter {
         }
         
         if scrollView.isDragging {
-            self.pullingPercent = pullingPercent;
+            self.pullingPercent = pullingPercent
             // 普通 和 即将刷新 的临界点
-            let normal2pullingOffsetY = happenOffsetY + self.frame.size.height;
+            let normal2pullingOffsetY = happenOffsetY + self.frame.size.height
             
             if self.state == .idle && currentOffsetY > normal2pullingOffsetY {
                 // 转为即将刷新状态
-                self.state = .pulling;
+                self.state = .pulling
             } else if state == .pulling && currentOffsetY <= normal2pullingOffsetY {
                 // 转为普通状态
-                self.state = .idle;
+                self.state = .idle
             }
         } else if state == .pulling {// 即将刷新 && 手松开
             // 开始刷新
             beginRefreshing()
         } else if pullingPercent < 1 {
-            self.pullingPercent = pullingPercent;
+            self.pullingPercent = pullingPercent
         }
     }
     
@@ -70,7 +70,7 @@ open class RefreshBackFooter: RefreshFooter {
         // 表格的高度
         let scrollHeight = scrollView.frame.size.height - (scrollViewOriginalInset?.top ?? 0) - (scrollViewOriginalInset?.bottom ?? 0) + ignoredScrollViewContentInsetBottom
         // 设置位置和尺寸
-        frame.origin.y = max(contentHeight, scrollHeight);
+        frame.origin.y = max(contentHeight, scrollHeight)
         
     }
     
@@ -105,7 +105,7 @@ open class RefreshBackFooter: RefreshFooter {
                     var bottom = self.frame.size.height + (self.scrollViewOriginalInset?.bottom ?? 0)
                     let deltaH = self.heightForContentBreakView()
                     if (deltaH < 0) { // 如果内容高度小于view的高度
-                        bottom -= deltaH;
+                        bottom -= deltaH
                     }
                     self.lastBottomDelta = bottom - (self.scrollView?.mlInset.bottom ?? 0)
                     self.scrollView?.mlInset.bottom = bottom

@@ -10,20 +10,22 @@ import UIKit
 
 open class RefreshHeader: RefreshComponent {
     
-    class func refreshing(_ refreshingCallback: (()->())?) -> RefreshHeader {
-        let header = RefreshHeader()
-        header.refreshingBlock = refreshingCallback
-        return header
+    public init(_ refreshingCallback: (()->())?) {
+        super.init()
+        refreshingBlock = refreshingCallback
+    }
+    public init(_ target: NSObject?, action: Selector?) {
+        super.init()
+        addRefreshingTarget(target, action: action)
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    class func refresh(_ target: NSObject?, action: Selector?) -> RefreshHeader {
-        let header = RefreshHeader()
-        header.addRefreshingTarget(target, action: action)
-        return header
-    }
+    
     
     /** 这个key用来存储上一次下拉刷新成功的时间 */
-    let lastUpdatedTimeKey: String = RefreshHeaderTimeKey
+    var lastUpdatedTimeKey: String = RefreshHeaderTimeKey
     /** 上一次下拉刷新成功的时间 */
     open var lastUpdatedTime: Date? {
         return UserDefaults.standard.object(forKey: lastUpdatedTimeKey) as? Date
@@ -61,14 +63,11 @@ open class RefreshHeader: RefreshComponent {
         case .refreshing:
             if self.window == nil { return }
             // sectionheader停留解决
-            if let scrollViewOriginalInset = scrollViewOriginalInset {
-                var insetT = max(-scrollView.contentOffset.y, scrollViewOriginalInset.top)
-                insetT = min(insetT, frame.size.height + scrollViewOriginalInset.top)
-                scrollView.contentInset.top = insetT
-                insetTDelta = scrollViewOriginalInset.top - insetT
-            } else {
-                self.insetTDelta = scrollViewOriginalInset?.top ?? 0
-            }
+            let scrollViewOriginalInset = self.scrollViewOriginalInset ?? .zero
+            var insetT = max(-scrollView.contentOffset.y, scrollViewOriginalInset.top)
+            insetT = min(insetT, frame.size.height + scrollViewOriginalInset.top)
+            scrollView.mlInset.top = insetT
+            insetTDelta = scrollViewOriginalInset.top - insetT
         default:
             // 跳转到下一个控制器时，contentInset可能会变
             scrollViewOriginalInset = scrollView.mlInset
@@ -91,7 +90,7 @@ open class RefreshHeader: RefreshComponent {
                     state = .pulling
                 } else if state == .pulling, offsetY >= normal2pullingOffsetY {
                     // 转为普通状态
-                    state = .idle;
+                    state = .idle
                 }
             } else if state == .pulling {// 即将刷新 && 手松开
                 // 开始刷新
@@ -103,12 +102,10 @@ open class RefreshHeader: RefreshComponent {
     }
     
     public override var state: RefreshState {
-        set {
-            let oldValue = state
-            if state == newValue { return }
-            super.state = newValue
+        didSet {
+            if oldValue == state { return }
             
-            switch newValue {
+            switch state {
             case .idle:
                 if oldValue != .refreshing { return }
                 
@@ -117,38 +114,36 @@ open class RefreshHeader: RefreshComponent {
                 UserDefaults.standard.synchronize()
                 
                 // 恢复inset和offset
-                UIView.animate(withDuration: RefreshSlowAnimationDuration, animations: { [weak self] in
-                    self?.scrollView?.mlInset.top = ((self?.scrollView?.mlInset.top) ?? 0) + (self?.insetTDelta ?? 0)
+                UIView.animate(withDuration: RefreshSlowAnimationDuration, animations: { 
+                    self.scrollView?.mlInset.top += self.insetTDelta
                     // 自动调整透明度
-                    if self?.isAutomaticallyChangeAlpha == true {
-                        self?.alpha = 0.0
+                    if self.isAutomaticallyChangeAlpha == true {
+                        self.alpha = 0.0
                     }
-                }) { [weak self] (isFinished) in
-                    self?.endRefreshingCompletionBlock?()
+                }) { (isFinished) in
+                    self.pullingPercent = 0.0
+                    self.endRefreshingCompletionBlock?()
                 }
                 
             case .refreshing:
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async {
                     UIView.animate(withDuration: RefreshFastAnimationDuration, animations: {
-                        if self?.scrollView?.panGestureRecognizer.state != .cancelled {
-                            let top = (self?.scrollViewOriginalInset?.top ?? 0) + (self?.frame.size.height ?? 0)
+                        if self.scrollView?.panGestureRecognizer.state != .cancelled {
+                            let top = (self.scrollViewOriginalInset?.top ?? 0) + self.frame.size.height
                             // 增加滚动区域top
-                            self?.scrollView?.mlInset.top = top
+                            self.scrollView?.mlInset.top = top
                             // 设置滚动位置
-                            var offset = (self?.scrollView?.contentOffset) ?? .zero
+                            var offset = (self.scrollView?.contentOffset) ?? .zero
                             offset.y = -top
-                            self?.scrollView?.setContentOffset(offset, animated: false)
+                            self.scrollView?.setContentOffset(offset, animated: false)
                         }
                     }, completion: { (isFinished) in
-                        self?.executeRefreshingCallback()
+                        self.executeRefreshingCallback()
                     })
                 }
             default: break
             }
             
-        }
-        get {
-            return super.state
         }
     }
     

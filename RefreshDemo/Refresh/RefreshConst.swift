@@ -11,10 +11,12 @@ import UIKit
 let RefreshHeaderHeight: CGFloat = 54.0
 let RefreshFooterHeight: CGFloat = 44.0
 
-let RefreshSlowAnimationDuration = 0.4
-let RefreshFastAnimationDuration = 0.25
+let RefreshSlowAnimationDuration: TimeInterval = 0.4
+let RefreshFastAnimationDuration: TimeInterval = 0.25
 
-let RefreshSlowDelayDuration = 200
+let RefreshLabelLeftInset: CGFloat = 25
+
+//let RefreshSlowDelayDuration = 200
 
 let RefreshContentOffset: String = "contentOffset"
 let RefreshContentSize: String = "contentSize"
@@ -42,4 +44,14 @@ func Color(_ r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a: CGFloat = 1.0) -> UICo
 }
 let DefaltColor: UIColor = Color(150, 150, 150, 1.0)
 
-
+extension UIImage {
+    
+    class func bundleImage(named name: String) -> UIImage? {
+        let bundle =  Bundle(for: RefreshComponent.self)
+        let path = bundle.path(forResource: "Refresh", ofType: "bundle")
+        let imageBundle =  Bundle(path: path!)
+        return UIImage(contentsOfFile: (imageBundle?.path(forResource: name, ofType: "png"))!)
+    }
+    
+    
+}

@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 //! Project version number for Refresh.
-FOUNDATION_EXPORT double RefreshVersionNumber;
+FOUNDATION_EXPORT double RefreshVersionNumber
 
 //! Project version string for Refresh.
-FOUNDATION_EXPORT const unsigned char RefreshVersionString[];
+FOUNDATION_EXPORT const unsigned char RefreshVersionString[]
 
 // In this header, you should import all the public headers of your framework using statements like #import <Refresh/PublicHeader.h>
 

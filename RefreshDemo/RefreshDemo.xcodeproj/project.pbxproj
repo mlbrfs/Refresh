@@ -25,6 +25,15 @@
 		6D75CCBB1DB5C856008ADDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D75CCB91DB5C856008ADDE7 /* LaunchScreen.storyboard */; };
 		6D75CCC61DB5C856008ADDE7 /* RefreshDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D75CCC51DB5C856008ADDE7 /* RefreshDemoTests.swift */; };
 		6D75CCD11DB5C856008ADDE7 /* RefreshDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D75CCD01DB5C856008ADDE7 /* RefreshDemoUITests.swift */; };
+		A200C2D321EC3650008A58FE /* RefreshStateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C2D221EC3650008A58FE /* RefreshStateHeader.swift */; };
+		A200C2D521EC642D008A58FE /* RefreshNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200C2D421EC642D008A58FE /* RefreshNormalHeader.swift */; };
+		A218270121EC8BA900B3D479 /* RefreshAnimationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A218270021EC8BA900B3D479 /* RefreshAnimationHeader.swift */; };
+		A218270321EC930700B3D479 /* RefreshAutoStateFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A218270221EC930700B3D479 /* RefreshAutoStateFooter.swift */; };
+		A218270521EC97BE00B3D479 /* RefreshAutoNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A218270421EC97BE00B3D479 /* RefreshAutoNormalFooter.swift */; };
+		A218270721EC9C0700B3D479 /* RefreshAutoAnimationFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A218270621EC9C0700B3D479 /* RefreshAutoAnimationFooter.swift */; };
+		A218270921EC9DAE00B3D479 /* RefreshBackStateFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A218270821EC9DAE00B3D479 /* RefreshBackStateFooter.swift */; };
+		A218270B21EC9ECC00B3D479 /* RefreshBackNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A218270A21EC9ECC00B3D479 /* RefreshBackNormalFooter.swift */; };
+		A218270D21ECA11C00B3D479 /* RefreshBackAnimationFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A218270C21ECA11C00B3D479 /* RefreshBackAnimationFooter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +100,15 @@
 		6D75CCCC1DB5C856008ADDE7 /* RefreshDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RefreshDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D75CCD01DB5C856008ADDE7 /* RefreshDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshDemoUITests.swift; sourceTree = "<group>"; };
 		6D75CCD21DB5C856008ADDE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A200C2D221EC3650008A58FE /* RefreshStateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshStateHeader.swift; sourceTree = "<group>"; };
+		A200C2D421EC642D008A58FE /* RefreshNormalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshNormalHeader.swift; sourceTree = "<group>"; };
+		A218270021EC8BA900B3D479 /* RefreshAnimationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAnimationHeader.swift; sourceTree = "<group>"; };
+		A218270221EC930700B3D479 /* RefreshAutoStateFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAutoStateFooter.swift; sourceTree = "<group>"; };
+		A218270421EC97BE00B3D479 /* RefreshAutoNormalFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAutoNormalFooter.swift; sourceTree = "<group>"; };
+		A218270621EC9C0700B3D479 /* RefreshAutoAnimationFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAutoAnimationFooter.swift; sourceTree = "<group>"; };
+		A218270821EC9DAE00B3D479 /* RefreshBackStateFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshBackStateFooter.swift; sourceTree = "<group>"; };
+		A218270A21EC9ECC00B3D479 /* RefreshBackNormalFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshBackNormalFooter.swift; sourceTree = "<group>"; };
+		A218270C21ECA11C00B3D479 /* RefreshBackAnimationFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshBackAnimationFooter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +147,7 @@
 		6D25FFC521EA50A200ED5068 /* Refresh */ = {
 			isa = PBXGroup;
 			children = (
+				A200C2CF21EC35B7008A58FE /* Custom */,
 				6D25FFDF21EB2FF000ED5068 /* Supporting Files */,
 				6D25FFDE21EB2FCE00ED5068 /* Base */,
 				6D25FFD321EA513600ED5068 /* RefreshConst.swift */,
@@ -211,6 +230,38 @@
 				6D75CCD21DB5C856008ADDE7 /* Info.plist */,
 			);
 			path = RefreshDemoUITests;
+			sourceTree = "<group>";
+		};
+		A200C2CF21EC35B7008A58FE /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				A200C2D121EC35E4008A58FE /* Header */,
+				A200C2D021EC35CF008A58FE /* Footer */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		A200C2D021EC35CF008A58FE /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				A218270221EC930700B3D479 /* RefreshAutoStateFooter.swift */,
+				A218270421EC97BE00B3D479 /* RefreshAutoNormalFooter.swift */,
+				A218270621EC9C0700B3D479 /* RefreshAutoAnimationFooter.swift */,
+				A218270821EC9DAE00B3D479 /* RefreshBackStateFooter.swift */,
+				A218270A21EC9ECC00B3D479 /* RefreshBackNormalFooter.swift */,
+				A218270C21ECA11C00B3D479 /* RefreshBackAnimationFooter.swift */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
+		A200C2D121EC35E4008A58FE /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				A200C2D221EC3650008A58FE /* RefreshStateHeader.swift */,
+				A200C2D421EC642D008A58FE /* RefreshNormalHeader.swift */,
+				A218270021EC8BA900B3D479 /* RefreshAnimationHeader.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,14 +444,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A218270B21EC9ECC00B3D479 /* RefreshBackNormalFooter.swift in Sources */,
 				6D25FFE321EB85F600ED5068 /* RefreshAutoFooter.swift in Sources */,
+				A218270321EC930700B3D479 /* RefreshAutoStateFooter.swift in Sources */,
 				6D25FFE521EB8D1400ED5068 /* RefreshBackFooter.swift in Sources */,
 				6D25FFD621EA513600ED5068 /* RefreshHeader.swift in Sources */,
+				A200C2D521EC642D008A58FE /* RefreshNormalHeader.swift in Sources */,
+				A218270121EC8BA900B3D479 /* RefreshAnimationHeader.swift in Sources */,
 				6D25FFDB21EA513600ED5068 /* RefreshComponent.swift in Sources */,
+				A218270721EC9C0700B3D479 /* RefreshAutoAnimationFooter.swift in Sources */,
 				6D25FFDD21EA519600ED5068 /* ML.swift in Sources */,
+				A218270921EC9DAE00B3D479 /* RefreshBackStateFooter.swift in Sources */,
+				A218270D21ECA11C00B3D479 /* RefreshBackAnimationFooter.swift in Sources */,
+				A200C2D321EC3650008A58FE /* RefreshStateHeader.swift in Sources */,
 				6D25FFD921EA513600ED5068 /* RefreshConst.swift in Sources */,
 				6D25FFD821EA513600ED5068 /* RefrashFooter.swift in Sources */,
 				6D25FFDA21EA513600ED5068 /* UIScrollView+Refresh.swift in Sources */,
+				A218270521EC97BE00B3D479 /* RefreshAutoNormalFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

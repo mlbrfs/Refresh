@@ -18,7 +18,10 @@ extension UIScrollView  {
     // 1.1 添加属性  头部刷新控件
     var header: RefreshHeader?  {
         set {
+            
+            header?.removeFromSuperview()
             if let newValue = newValue {
+                insertSubview(newValue, at: 0)
                 objc_setAssociatedObject(self, &AssociatedKeys.header, newValue, .OBJC_ASSOCIATION_ASSIGN)
             }
         }
@@ -29,7 +32,9 @@ extension UIScrollView  {
     // 1.2 添加属性  底部刷新控件
     var footer: RefreshFooter?  {
         set {
+            footer?.removeFromSuperview()
             if let newValue = newValue {
+                insertSubview(newValue, at: 0)
                 objc_setAssociatedObject(self, &AssociatedKeys.footer, newValue, .OBJC_ASSOCIATION_ASSIGN)
             }
         }
@@ -43,20 +48,23 @@ extension UIScrollView {
     
     var mlInset: UIEdgeInsets {
         get {
-            if #available(iOS 11.0, *){
+            if #available(iOS 11.0, *) {
                 return adjustedContentInset
             }
             return contentInset
         }
         set {
-            var inset = contentInset
+            var inset = newValue
             if #available(iOS 11.0, *) {
-                inset = UIEdgeInsets(top: adjustedContentInset.top - contentInset.top, left: adjustedContentInset.left - contentInset.left, bottom: adjustedContentInset.bottom - contentInset.bottom, right: adjustedContentInset.right - contentInset.right)
+                inset = UIEdgeInsets(top: inset.top - (adjustedContentInset.top - contentInset.top),
+                                     left: inset.left - (adjustedContentInset.left - contentInset.left),
+                                     bottom: inset.bottom - (adjustedContentInset.bottom - contentInset.bottom),
+                                     right: inset.right - (adjustedContentInset.right - contentInset.right))
             }
             contentInset = inset
         }
     }
-    
+
     var mlTotalDataCount: Int {
         
         var totalCount = 0
@@ -69,9 +77,7 @@ extension UIScrollView {
                 totalCount += collectionView.numberOfItems(inSection: scetion)
             }
         }
-        return totalCount;
+        return totalCount
         
     }
-    
-    
 }

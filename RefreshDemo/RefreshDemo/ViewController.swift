@@ -10,8 +10,6 @@ import UIKit
 
 import Refresh
 
-private let cellId = "CELLID"
-
 class ViewController: UIViewController {
     var headerRefresh: Bool = false
     var count: Int = 10
@@ -19,11 +17,11 @@ class ViewController: UIViewController {
     
     lazy var tableView: UITableView = {
         let table: UITableView = UITableView(frame: self.view.bounds, style: UITableView.Style.plain)
-        table.frame.origin.y = 20
-        table.frame.size.height = table.frame.size.height - 40
+//        table.frame.origin.y = 20
+//        table.frame.size.height = table.frame.size.height - 40
         table.delegate = self
         table.dataSource = self
-        table.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: cellId)
+        table.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
         return table
     }()
     
@@ -31,20 +29,26 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.purple
         view.addSubview(tableView)
+        tableView.frame = view.bounds
+        tableView.ml.header = RefreshNormalHeader({
+        print("headerRefreshingCallback")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
+                self?.count = 10
+                self?.tableView.ml.header?.endRefresh()
+                self?.tableView.reloadData()
+            }
         
-//        tableView.ml.header?.state = .normal
-//
-//        tableView.ml.addHeaderWithTarget(self, action: #selector(refreshForHeader))
-//        tableView.ml.addFooterWithTarget(self, action: #selector(refreshForFooter))
-        
-//        tableView.addFooterCallBack {
-//
-//        }
-//        tableView.ml.
-        
-        //        tableView.addHeaderCallBack(<#T##callback: (() -> Void)?##(() -> Void)?##() -> Void#>)
-        //        tableView.addFooterCallBack(<#T##callback: (() -> Void)?##(() -> Void)?##() -> Void#>)
-        
+        })
+//        tableView.ml.header?.isAutomaticallyChangeAlpha = true
+        tableView.ml.footer = RefreshBackNormalFooter({
+            print("headerRefreshingCallback")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
+                self?.count += 10
+                self?.tableView.ml.footer?.endRefresh()
+                self?.tableView.reloadData()
+            }
+            
+        })
     }
     
     @objc func refreshForHeader() -> Void {
@@ -53,7 +57,7 @@ class ViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
             
             self?.count = 10
-//            self?.tableView.ml.endHeaderRefresh()
+            self?.tableView.ml.header?.endRefresh()
             self?.tableView.reloadData()
             
         }
@@ -64,7 +68,7 @@ class ViewController: UIViewController {
         print("footerRefreshing")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
             self?.count += 10
-//            self?.tableView.ml.endFooterRefresh()
+            self?.tableView.ml.footer?.endRefresh()
             self?.tableView.reloadData()
 
         }
@@ -83,7 +87,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     /* UITableViewDelegate */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         cell.textLabel?.text = "\(indexPath.row)"
         cell.imageView?.image = UIImage(named: "Icon")
         
