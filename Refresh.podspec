@@ -1,11 +1,12 @@
 Pod::Spec.new do |s|
 
-  s.name         = "Refresh"
+  s.name         = "TheRefresh"
   s.version      = "1.0.0"
-  s.summary      = "which implement by Swift."
+  s.summary      = "UIScrollView Refresh control for  swift4.2"
 
   s.description  = <<-DESC
-                   UIScrollView Refresh control for swift3.0 
+                   UIScrollView Refresh control for swift4.2
+		   下拉刷新和上拉加载更多的控制器
                    DESC
 
   s.homepage     = "https://github.com/121372288/Refresh"
@@ -16,11 +17,13 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/121372288/Refresh.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/121372288/Refresh.git", :tag => s.version }
 
+  s.swift_version = "4.2"
 
-  s.source_files  = "Refresh/*"
-
+  s.source_files  = ["RefreshDemo/Refresh/**/*.swift", "RefreshDemo/Refresh/*.swift", "RefreshDemo/Refresh/Refresh.h"]
+  s.public_header_files = ["RefreshDemo/Refresh/Refresh.h"]
+  s.resource     = 'RefreshDemo/Refresh/Refresh.bundle'
 
   s.framework = "UIKit", "Foundation"
 

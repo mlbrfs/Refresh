@@ -101,6 +101,7 @@
 		6D75CCD21DB5C856008ADDE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A200C2D221EC3650008A58FE /* RefreshStateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshStateHeader.swift; sourceTree = "<group>"; };
 		A200C2D421EC642D008A58FE /* RefreshNormalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshNormalHeader.swift; sourceTree = "<group>"; };
+		A215CBF621FEE86F002C4385 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		A218270021EC8BA900B3D479 /* RefreshAnimationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAnimationHeader.swift; sourceTree = "<group>"; };
 		A218270221EC930700B3D479 /* RefreshAutoStateFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAutoStateFooter.swift; sourceTree = "<group>"; };
 		A218270421EC97BE00B3D479 /* RefreshAutoNormalFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAutoNormalFooter.swift; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 				6D75CCB71DB5C856008ADDE7 /* Assets.xcassets */,
 				6D75CCB91DB5C856008ADDE7 /* LaunchScreen.storyboard */,
 				6D75CCBC1DB5C856008ADDE7 /* Info.plist */,
+				A215CBF621FEE86F002C4385 /* README.md */,
 			);
 			path = RefreshDemo;
 			sourceTree = "<group>";
@@ -718,6 +720,7 @@
 					"$(PROJECT_DIR)/RefreshDemo",
 				);
 				INFOPLIST_FILE = RefreshDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MLCode.RefreshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -737,6 +740,7 @@
 					"$(PROJECT_DIR)/RefreshDemo",
 				);
 				INFOPLIST_FILE = RefreshDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MLCode.RefreshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

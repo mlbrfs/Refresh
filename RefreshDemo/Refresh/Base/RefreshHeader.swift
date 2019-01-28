@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 open class RefreshHeader: RefreshComponent {
     
@@ -104,6 +105,16 @@ open class RefreshHeader: RefreshComponent {
     public override var state: RefreshState {
         didSet {
             if oldValue == state { return }
+            
+            if state == .pulling {
+                //建立的SystemSoundID对象
+                if #available(iOS 10.0, *) {
+                    let impactLight = UIImpactFeedbackGenerator(style: .light)
+                    impactLight.impactOccurred()
+                } else {
+                    AudioServicesPlaySystemSound(1519)
+                }
+            }
             
             switch state {
             case .idle:

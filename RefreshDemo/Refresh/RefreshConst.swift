@@ -78,7 +78,7 @@ extension Bundle {
         }
         // 从Refresh.bundle中查找资源
         let bundle = Bundle(path: current.path(forResource: language, ofType: "lproj")!)
-        let str = bundle?.localizedString(forKey: key, value: value, table: nil) ?? "未知文字"
+        let str = bundle?.localizedString(forKey: key, value: value, table: nil) ?? key
         return str
     }
     
