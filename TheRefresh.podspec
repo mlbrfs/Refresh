@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
 
   s.swift_version = "4.2"
 
-  s.source_files  = ["Refresh/**/*.swift", "Refresh/*.swift", "Refresh/Refresh.h"]
-  s.public_header_files = ["Refresh/Refresh.h"]
+  s.source_files  = ["Refresh/**/*.swift", "Refresh/*.swift"]
+  # s.public_header_files = ["Refresh/Refresh.h"]
   s.resource     = 'Refresh/Refresh.bundle'
 
   s.framework = "UIKit", "Foundation"
