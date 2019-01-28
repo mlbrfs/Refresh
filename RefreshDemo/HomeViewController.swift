@@ -18,6 +18,8 @@ class HomeViewController: UITableViewController {
         tableView.ml.add(optional: .header(.normal), target: self, selector: #selector(headRefresh))
 //        header = RefreshNormalHeader(self, action: #selector(headRefresh))
         tableView.ml.header?.beginRefreshing()
+        
+        
     }
     
     @objc func headRefresh() {

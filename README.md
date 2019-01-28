@@ -1,51 +1,41 @@
-# Refresh
-UIScrollView Refresh control for  swift4.2  
+<p align="center">
+<img src="https://github.com/121372288/PhotoPicker/blob/master/images/logo.jpg" alt="PhotoPickerKit" title="PhotoPickerKit" width="557"/>
+</p>
 
-#引入项目
+TheRefresh 是针对swift 刷新控件
 
-1.直接将Refresh.framework导入项目内
-2.或者将Refresh文件夹导入项目
+## 引入项目
 
-#使用方法
-
-下面是scrollView分类方法
-
-// 添加头部或者尾部控件 和调用时回调block
+`pod 'TheRefresh'`
 
 
-// 给刷新事件添加Target和响应事件
-- (void)addHeaderWithTarget:(id _Nonnull)target action:(SEL _Nonnull)action;
-- (void)addFooterWithTarget:(id _Nonnull)target action:(SEL _Nonnull)action;
+## 使用方法
 
-// 调用结束或者开始刷新  并调用响应回调和action
-- (void)startHeaderRefresh;
-- (void)startFooterRefresh;
-- (void)endHeaderRefresh;
-- (void)endFooterRefresh;
+` import TheRefresh ` 导入项目
 
-// 判断是否在刷新
+```swift
+    // 增加头部刷新控件
+    tableView.ml.add(optional: .header(.normal)) {
+        // 开始刷新  
+    }
+    
+    // 增加底部刷新控件
+    tableView.ml.add(optional: .footer(.normal)) {
+        // 开始刷新  
+    }
+```
 
-@property (nonatomic, readonly) BOOL isHeaderRefreshing;
+```
+// 结束头部刷新动画
+tableView.ml.header?.endRefresh()
+// 结束底部刷新动画
+tableView.ml.footer?.endRefresh()
+```
+```
+或者 添加自定义视图
 
-@property (nonatomic, readonly) BOOL isFooterRefreshing;
+tableView.ml.add(optional: .header(.custom(<#自定义的刷新视图#>))) {
 
-// 给刷新时不同状态赋值文案
+}
 
-@property (nonatomic, copy) NSString * _Nonnull headerPullToRefreshText;
-
-@property (nonatomic, copy) NSString * _Nonnull headerReleaseToRefreshText;
-
-@property (nonatomic, copy) NSString * _Nonnull headerRefreshingText;
-
-@property (nonatomic, copy) NSString * _Nonnull footerPullToRefreshText;
-
-@property (nonatomic, copy) NSString * _Nonnull footerReleaseToRefreshText;
-
-@property (nonatomic, copy) NSString * _Nonnull footerRefreshingText;
-
-// 删除刷新视图
-
-- (void)removerHeader;
-
-- (void)removerFooter;
-
+```
