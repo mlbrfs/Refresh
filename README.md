@@ -8,6 +8,9 @@ TheRefresh 是针对swift 刷新控件
 
 `pod 'TheRefresh'`
 
+## Requirements
+- iOS 8.0+
+- Swift 4.2+
 
 ## 使用方法
 
