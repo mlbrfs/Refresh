@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TheRefresh"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "UIScrollView Refresh control for  swift4.2"
 
   s.description  = <<-DESC

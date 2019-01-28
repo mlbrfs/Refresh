@@ -1,4 +1,5 @@
 .DS_Store
 Pods/*
 Podfile.lock
-RefreshDemo.xcodeproj/xcuserdata/*
+RefreshDemo.xcodeproj/xcuserdata/*.xcuserdatad
+RefreshDemo.xcodeproj/project.xcworkspace/xcuserdata/*
