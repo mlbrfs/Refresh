@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/121372288/PhotoPicker/blob/master/images/logo.jpg" alt="PhotoPickerKit" title="PhotoPickerKit" width="557"/>
+<img src="https://github.com/121372288/Refresh/blob/master/images/logo.jpg" alt="TheRefresh" title="TheRefresh" width="557"/>
 </p>
 
 TheRefresh 是针对swift 刷新控件
